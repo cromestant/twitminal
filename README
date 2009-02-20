@@ -1,6 +1,12 @@
-//* simple to use //*
+Minimal twitter client.
+
+requires growl bindings and Twitter api installed, 
+
+growl is in the extras part of the growl installation and twitter api can be found in google code page :
+
+http://code.google.com/p/python-twitter/
+
+Any questions :
+cromestant@gmail.com
 
 
-Any questions to cromestant@gmail.com
-
-No installation manual if its not required, if you d like to contribute, same email
