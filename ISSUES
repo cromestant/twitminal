@@ -1,0 +1,7 @@
+There is aproblem on my machine detecting the local deviation from GMT, strftime with %z is empty here, so i had to put it -0430 in code ( for caracas), you must change it for whatever your zone is
+
+open checker.py 
+edit self.last = d.strftime("%a, %d %b %Y %H:%M:%S -0430")
+change -0430 for whatever timezone you are in.
+
+Any fixes for this would be appreciated.
