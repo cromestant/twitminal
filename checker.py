@@ -34,9 +34,9 @@ class checker ( threading.Thread ):
 					self.last = d.strftime("%a, %d %b %Y %H:%M:%S -0430")
 					temp=""
 					for f in friendsline:
-						#self.growl.notify(self.growl.notifications[0],'Twitminal',f.GetUser().screen_name+": "+f.GetText())
-						temp+=f.GetUser().screen_name+": "+f.GetText()+"\n"
-					self.growl.notify(self.growl.notifications[0],'Twitminal',temp)
+						self.growl.notify(self.growl.notifications[0],'Twitminal',f.GetUser().screen_name+": "+f.GetText())
+						#temp+=f.GetUser().screen_name+": "+f.GetText()+"\n"
+					#self.growl.notify(self.growl.notifications[0],'Twitminal',temp)
 				self.i=(self.i+1)%18
 				sleep(10)
 			except:
