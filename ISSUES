@@ -4,4 +4,9 @@ open checker.py
 edit self.last = d.strftime("%a, %d %b %Y %H:%M:%S -0430")
 change -0430 for whatever timezone you are in.
 
+
+There is a problem with non ASCII characters, it seems that twitter api throws an exception with this.
+
 Any fixes for this would be appreciated.
+
+THANK YOU to the twitter python api team, and of course simplejson and growl team.
