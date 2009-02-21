@@ -17,7 +17,7 @@ def printHelpMenu():
 	print "--help menu:"
 	print "--Available commands :"
 	print "  --help (prints this menu)"
-	print "  --last (shows last 5 twitts on screen)"
+	print "  --last (shows last non-empty import of twits)"
 	print "  --direct:<name>:<message> (posts direct message to user)"
 	print "  --friendsList (prints friends list)"
 	print "  exit() (Kills notifier thread, then quits)"
@@ -31,7 +31,7 @@ def handler(signum, frame):
 	print "Bye bye"
 	sys.exit()
 
-print Yellow,"Guelcome! Twitminal, minimal twitter client with growl notifications!\nBy Charz! (Charles Romestant)"
+print "Welcome! Twitminal, minimal twitter client with growl notifications!\nBy Charz! (Charles Romestant)"
 print "cromestant@gmail.com\n\n"
 print "Twitter username: "
 username = sys.stdin.readline()[:-1]
@@ -42,7 +42,7 @@ try:
 	api=twitter.Api(username,password,'utf-8')
 	friends = api.GetFriends()
 except:
-	print "Authorization error\no peos de comunicacion"
+	print "Authorization error\nor comunication errors"
 	sys.exit()
 print "Type 'quit()' to exit --help for commands\nAnything else WILL be twitted!\n"
 signal.signal(signal.SIGINT, handler)
