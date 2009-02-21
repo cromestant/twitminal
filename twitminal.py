@@ -4,6 +4,7 @@ import datetime
 import twitter
 import checker
 import signal
+import chardet
 from time import localtime,asctime,sleep
 
 username=''
@@ -38,7 +39,7 @@ print "Twitter Password: "
 password=sys.stdin.readline()[:-1]
 
 try:
-	api=twitter.Api(username,password)
+	api=twitter.Api(username,password,'utf-8')
 	friends = api.GetFriends()
 except:
 	print "Authorization error\no peos de comunicacion"
