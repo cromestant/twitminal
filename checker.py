@@ -16,8 +16,9 @@ class checker ( threading.Thread ):
 	api=None
 	i=0
 	def __init__(self,username,password):
-		self.growl = growler.growler()
-		self.growl.notify(self.growl.notifications[0],'Twitminal','estarteando esta verga!\n')
+		self.notifiers=[]
+		growl = growler.growler()
+		self.notifiers.append(growl)
 		self.username = username
 		self.password=password
 		self.api = twitter.Api(self.username,self.password)
@@ -34,7 +35,8 @@ class checker ( threading.Thread ):
 					self.last = d.strftime("%a, %d %b %Y %H:%M:%S -0430")
 					temp=""
 					for f in friendsline:
-						self.growl.notify(self.growl.notifications[0],'Twitminal',f.GetUser().screen_name+": "+f.GetText())
+						for n in self.notifiers:
+							n.send('Twitminal',f.GetUser().screen_name,f.GetText())
 						#temp+=f.GetUser().screen_name+": "+f.GetText()+"\n"
 					#self.growl.notify(self.growl.notifications[0],'Twitminal',temp)
 				self.i=(self.i+1)%18

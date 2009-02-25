@@ -10,7 +10,9 @@ from time import localtime,asctime,sleep
 username=''
 password=''
 mychecker=None
-Yellow =0x23
+esc = '%s['%chr(27)
+reset = '%s0m'%esc
+
 
 def printHelpMenu():
 	print "Twitminal- by Charz"
@@ -31,7 +33,7 @@ def handler(signum, frame):
 	print "Bye bye"
 	sys.exit()
 
-print "Welcome! Twitminal, minimal twitter client with growl notifications!\nBy Charz! (Charles Romestant)"
+print reset,"Welcome! Twitminal, minimal twitter client with growl notifications!\nBy Charz! (Charles Romestant)"
 print "cromestant@gmail.com\n\n"
 print "Twitter username: "
 username = sys.stdin.readline()[:-1]
