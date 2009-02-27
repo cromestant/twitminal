@@ -26,7 +26,7 @@ def printHelpMenu():
 	printc (green,"  --help (printcs this menu)")
 	printc (green,"  --last (shows last non-empty import of twits)")
 	printc (green,"  --direct:<name>:<message> (posts direct message to user)")
-	printc (green,"  --friendsList (printcs friends list)")
+	printc (green,"  --friendsList (prints friends list)")
 	printc (green,"  exit() (Kills notifier thread, then quits)")
 
 def handler(signum, frame):
