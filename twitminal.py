@@ -27,6 +27,8 @@ def printHelpMenu():
 	printc (green,"  --last (shows last non-empty import of twits)")
 	printc (green,"  --direct:<name>:<message> (posts direct message to user)")
 	printc (green,"  --friendsList (prints friends list)")
+	printc (green,"  --log toggle log on/off switch")
+	printc (green,"  --clear clear logged messages")
 	printc (green,"  exit() (Kills notifier thread, then quits)")
 
 def handler(signum, frame):
@@ -80,6 +82,14 @@ while loop:
 		friends = api.GetFriends(username)
 		for f in friends:
 			printc(blue, f.screen_name)
+	elif text=="--log":
+		resp =mychecker.logTweets()
+		if resp:
+			printc(red,"Starting to log messages")
+		else:
+			printc(red,"Stop logging messages")
+	elif text=="--clear":
+		mychecker.clearLog()
 	elif len(text)>140:
 		printc (red,"over 140 characters..")
 	else:

@@ -21,6 +21,7 @@ class checker ( threading.Thread ):
 		self.notifiers.append(growl)
 		self.username = username
 		self.password=password
+		self.log =False
 		self.api = twitter.Api(self.username,self.password)
 		self.api.SetXTwitterHeaders('Twitminal','none-yet', 'V.0.1')
 		threading.Thread.__init__(self)
@@ -50,7 +51,17 @@ class checker ( threading.Thread ):
 	def setLastLine(self,newline):
 		lock =threading.Lock()
 		lock.acquire()
-		self.lastLine = newline
+		if self.log:
+			self.lastLine.extend(newline)
+		else:
+			self.lastLine = newline
 		lock.release()
 	def getLastLine(self):
 		return self.lastLine
+	def logTweets(self):
+		"""sets log flag to log"""
+		self.log = not self.log
+		return self.log
+	def clearLog(self):
+		"""Clears log"""
+		self.lastLine =[]
